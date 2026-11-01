@@ -1,5 +1,1096 @@
 html, body
     margin: 0
     height: 100%
-    user-select: none
+    user-select: text
     -webkit-tap-highlight-color: transparent
+
+$paper: #f4f2ec
+$ink: #191a1e
+$muted: #777873
+$line: #d9d8d1
+$violet: #baabff
+$lime: #d9fb75
+$dark: #1a1b20
+
+html
+    scroll-behavior: smooth
+    scroll-padding-top: 90px
+
+body
+    min-width: 320px
+    background: $paper
+    color: $ink
+    font-family: Arial, "Helvetica Neue", sans-serif
+    -webkit-font-smoothing: antialiased
+
+*, *::before, *::after
+    box-sizing: border-box
+
+::selection
+    background: $violet
+    color: $ink
+
+a
+    color: inherit
+    text-decoration: none
+
+button
+    color: inherit
+    font: inherit
+
+.section-wrap
+    width: min(100% - 96px, 1240px)
+    margin-inline: auto
+
+.skip-link
+    position: fixed
+    z-index: 20
+    top: 12px
+    left: 12px
+    padding: 12px 16px
+    transform: translateY(-160%)
+    border-radius: 4px
+    background: $lime
+    color: $ink
+    font-size: 14px
+    font-weight: 700
+    transition: transform .2s ease
+
+    &:focus
+        transform: translateY(0)
+
+.site-header
+    position: relative
+    z-index: 10
+    border-bottom: 1px solid rgba($ink, .13)
+
+.navigation
+    display: flex
+    width: min(100% - 96px, 1440px)
+    min-height: 88px
+    align-items: center
+    justify-content: space-between
+    margin-inline: auto
+
+.wordmark
+    display: inline-flex
+    align-items: center
+    gap: 11px
+    font-size: 20px
+    font-weight: 700
+    letter-spacing: -.065em
+
+.wordmark-symbol
+    display: grid
+    width: 34px
+    height: 34px
+    place-items: center
+    border-radius: 50%
+    background: $ink
+    color: $lime
+    font-family: Georgia, serif
+    font-size: 22px
+    font-weight: 400
+    font-style: italic
+
+.wordmark-accent
+    color: #7770b9
+
+.navigation-links
+    display: flex
+    align-items: center
+    gap: clamp(22px, 3.1vw, 48px)
+    font-size: 13px
+    font-weight: 600
+
+    > a:not(.navigation-cta)
+        color: #595a57
+        transition: color .2s ease
+
+        &:hover, &:focus-visible
+            color: $ink
+
+.navigation-cta
+    display: inline-flex
+    min-height: 44px
+    align-items: center
+    gap: 20px
+    padding: 0 18px
+    border: 1px solid rgba($ink, .26)
+    border-radius: 3px
+    transition: background .2s ease, color .2s ease, border-color .2s ease
+
+    span
+        font-size: 16px
+
+    &:hover, &:focus-visible
+        border-color: $ink
+        background: $ink
+        color: white
+
+.menu-toggle
+    display: none
+
+.hero
+    display: grid
+    min-height: 660px
+    grid-template-columns: 1fr .94fr
+    align-items: center
+    gap: clamp(42px, 7vw, 104px)
+    padding-block: 82px 92px
+
+.hero-copy
+    padding-block: 10px
+
+.eyebrow
+    display: flex
+    align-items: center
+    gap: 10px
+    margin: 0 0 25px
+    color: #666762
+    font-size: 11px
+    font-weight: 700
+    letter-spacing: .14em
+    line-height: 1.4
+    text-transform: uppercase
+
+.eyebrow-mark
+    display: inline-block
+    width: 8px
+    height: 8px
+    flex: 0 0 auto
+    border-radius: 50%
+    background: #8d79d4
+
+h1, h2, h3, p
+    margin-top: 0
+
+.hero h1
+    max-width: 680px
+    margin-bottom: 25px
+    font-family: Georgia, "Times New Roman", serif
+    font-size: clamp(54px, 6.3vw, 92px)
+    font-weight: 400
+    letter-spacing: -.075em
+    line-height: .99
+
+    span
+        color: #8378ba
+        font-style: italic
+
+.hero-description
+    max-width: 490px
+    margin-bottom: 31px
+    color: #62635f
+    font-size: 16px
+    line-height: 1.75
+
+.hero-actions
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    gap: 25px
+
+.button
+    display: inline-flex
+    min-height: 54px
+    align-items: center
+    justify-content: space-between
+    gap: 27px
+    padding: 0 20px
+    border: 1px solid transparent
+    border-radius: 3px
+    font-size: 13px
+    font-weight: 700
+    transition: transform .2s ease, background .2s ease, color .2s ease
+
+    span
+        font-size: 17px
+
+    &:hover
+        transform: translateY(-2px)
+
+.button-dark
+    background: $ink
+    color: white
+
+    &:hover, &:focus-visible
+        background: #36343e
+
+.text-link
+    display: inline-flex
+    align-items: center
+    gap: 12px
+    font-size: 13px
+    font-weight: 700
+
+    span
+        font-size: 16px
+        transition: transform .2s ease
+
+    &:hover span, &:focus-visible span
+        transform: translate(2px, -2px)
+
+.hero-footnote
+    display: flex
+    align-items: center
+    gap: 11px
+    margin-top: 51px
+    color: #777873
+    font-size: 11px
+    letter-spacing: .015em
+
+.footnote-line
+    width: 34px
+    height: 1px
+    background: #a6a59d
+
+.hero-art
+    position: relative
+    min-height: 500px
+    overflow: hidden
+    isolation: isolate
+    border-radius: 4px
+    background: $dark
+    color: white
+
+.art-grid
+    position: absolute
+    z-index: -1
+    inset: 0
+    background-image: linear-gradient(rgba(255, 255, 255, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .055) 1px, transparent 1px)
+    background-size: 44px 44px
+    mask-image: linear-gradient(130deg, black, transparent 95%)
+
+.art-topline, .art-bottomline
+    position: absolute
+    right: 30px
+    left: 30px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    color: rgba(255, 255, 255, .56)
+    font-size: 9px
+    font-weight: 700
+    letter-spacing: .15em
+
+.art-topline
+    top: 27px
+
+.art-orbit
+    position: absolute
+    top: 45%
+    left: 52%
+    width: 68%
+    aspect-ratio: 1
+    border: 1px solid rgba(210, 199, 255, .28)
+    border-radius: 50%
+    transform: translate(-50%, -50%)
+
+.art-orbit-one
+    transform: translate(-50%, -50%) rotate(-31deg) scaleY(.55)
+
+.art-orbit-two
+    border-color: rgba(217, 251, 117, .35)
+    transform: translate(-50%, -50%) rotate(53deg) scaleY(.55)
+
+.art-center
+    position: absolute
+    top: 45%
+    left: 52%
+    display: grid
+    width: 150px
+    aspect-ratio: 1
+    place-items: center
+    border: 1px solid rgba(255, 255, 255, .45)
+    border-radius: 50%
+    background: radial-gradient(circle at 38% 33%, #b9a8f8, #736b9e 48%, #42434d 74%)
+    box-shadow: 0 0 0 13px rgba(191, 174, 255, .06), 0 0 80px rgba(173, 148, 255, .38)
+    transform: translate(-50%, -50%)
+
+    span
+        color: white
+        font-family: Georgia, serif
+        font-size: 51px
+        font-style: italic
+        letter-spacing: -.09em
+
+    i
+        position: absolute
+        top: 16px
+        right: 19px
+        width: 12px
+        height: 12px
+        border-radius: 50%
+        background: $lime
+        box-shadow: 0 0 0 5px rgba($lime, .15)
+
+.art-caption
+    position: absolute
+    bottom: 82px
+    left: 31px
+
+    strong
+        display: block
+        font-family: Georgia, serif
+        font-size: 25px
+        font-weight: 400
+        letter-spacing: -.04em
+        line-height: 1.1
+
+.art-caption-kicker
+    display: block
+    margin-bottom: 10px
+    color: $lime
+    font-size: 8px
+    font-weight: 700
+    letter-spacing: .15em
+
+.art-stamp
+    position: absolute
+    top: 39%
+    right: 11%
+    display: grid
+    width: 62px
+    height: 62px
+    align-content: center
+    justify-items: center
+    border: 1px solid rgba(217, 251, 117, .6)
+    border-radius: 50%
+    color: $lime
+    font-size: 9px
+    font-weight: 700
+    letter-spacing: .13em
+    transform: rotate(11deg)
+
+    span
+        margin-top: 2px
+        font-size: 14px
+
+.art-bottomline
+    bottom: 27px
+    justify-content: flex-start
+    gap: 9px
+    font-size: 8px
+
+.art-connector
+    width: 18px
+    height: 1px
+    background: rgba(255, 255, 255, .3)
+
+.intro-band
+    border-block: 1px solid $line
+
+.intro-band-inner
+    display: grid
+    min-height: 154px
+    grid-template-columns: 1fr 2fr auto
+    align-items: center
+    gap: 20px
+
+.intro-label
+    color: $muted
+    font-size: 10px
+    font-weight: 700
+    letter-spacing: .13em
+
+.intro-band p
+    margin: 0
+    font-family: Georgia, serif
+    font-size: clamp(21px, 2.7vw, 34px)
+    letter-spacing: -.04em
+    line-height: 1.2
+
+.intro-index
+    color: #8b8b84
+    font-size: 10px
+    letter-spacing: .12em
+
+.process
+    padding-block: 130px 140px
+
+.section-heading
+    display: flex
+    align-items: flex-end
+    justify-content: space-between
+    gap: 55px
+    margin-bottom: 58px
+
+.section-heading h2, .value-content h2
+    margin: 0
+    font-family: Georgia, "Times New Roman", serif
+    font-size: clamp(44px, 5vw, 68px)
+    font-weight: 400
+    letter-spacing: -.07em
+    line-height: .99
+
+    span
+        color: #8378ba
+        font-style: italic
+
+.section-intro
+    max-width: 370px
+    margin: 0 0 4px
+    color: #656660
+    font-size: 14px
+    line-height: 1.75
+
+.steps-grid
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    border-block: 1px solid $line
+
+.step-card
+    position: relative
+    min-height: 267px
+    padding: 25px 30px 30px 0
+
+    + .step-card
+        padding-left: 30px
+        border-left: 1px solid $line
+
+    h3
+        max-width: 260px
+        margin: 36px 0 12px
+        font-family: Georgia, serif
+        font-size: 23px
+        font-weight: 400
+        letter-spacing: -.035em
+        line-height: 1.1
+
+    p
+        max-width: 310px
+        margin: 0
+        color: #696a65
+        font-size: 13px
+        line-height: 1.75
+
+.step-card-featured .step-icon
+    background: $violet
+    color: $ink
+
+.step-meta
+    display: flex
+    align-items: center
+    justify-content: space-between
+    color: #777873
+    font-size: 10px
+    letter-spacing: .1em
+
+.step-icon
+    display: grid
+    width: 36px
+    height: 36px
+    place-items: center
+    border-radius: 50%
+    background: #e8e5db
+    color: #595a57
+    font-size: 19px
+
+.step-rule
+    position: absolute
+    right: 30px
+    bottom: -1px
+    left: 0
+    height: 2px
+    transform: scaleX(0)
+    transform-origin: left
+    background: #9181cf
+    transition: transform .25s ease
+
+.step-card:hover .step-rule
+    transform: scaleX(1)
+
+.step-card + .step-card .step-rule
+    left: 30px
+
+.audiences
+    padding-block: 112px 125px
+    background: #eae8e0
+
+.audience-heading
+    margin-bottom: 52px
+
+.audience-grid
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    gap: 18px
+
+.audience-card
+    position: relative
+    min-height: 440px
+    overflow: hidden
+    padding: 29px 34px 30px
+
+.audience-vip
+    background: $lime
+
+.audience-business
+    background: #d9d2f4
+
+.audience-card-top
+    display: flex
+    align-items: center
+    justify-content: space-between
+    color: rgba($ink, .6)
+    font-size: 9px
+    font-weight: 700
+    letter-spacing: .13em
+
+.audience-symbol
+    position: absolute
+    top: 76px
+    right: 45px
+    display: grid
+    width: 110px
+    aspect-ratio: 1
+    place-items: center
+    border: 1px solid rgba($ink, .24)
+    border-radius: 50%
+    color: $ink
+
+    span
+        font-family: Georgia, serif
+        font-size: 49px
+        font-style: italic
+        line-height: 1
+
+    i
+        position: absolute
+        inset: -11px 14px
+        border: 1px solid rgba($ink, .22)
+        border-radius: 50%
+        transform: rotate(-35deg)
+
+.audience-symbol-vip i
+    transform: rotate(48deg)
+
+.audience-symbol-business span
+    font-family: Arial, sans-serif
+    font-size: 39px
+    font-style: normal
+
+.audience-card h3
+    position: relative
+    max-width: 340px
+    margin: 134px 0 14px
+    font-family: Georgia, serif
+    font-size: clamp(36px, 4.2vw, 55px)
+    font-weight: 400
+    letter-spacing: -.07em
+    line-height: .98
+
+.audience-card p
+    max-width: 370px
+    margin-bottom: 25px
+    color: rgba($ink, .7)
+    font-size: 13px
+    line-height: 1.7
+
+.audience-link
+    display: inline-flex
+    align-items: center
+    gap: 12px
+    font-size: 11px
+    font-weight: 700
+
+    span
+        font-size: 15px
+
+.value
+    display: grid
+    grid-template-columns: .8fr 2fr
+    gap: 50px
+    padding-block: 142px 150px
+
+.value-aside
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+.value-aside .eyebrow
+    margin-bottom: 0
+
+.value-aside-number
+    color: #a6a69e
+    font-size: 11px
+    line-height: 1.35
+    letter-spacing: .08em
+
+    i
+        font-style: normal
+
+.value-content h2
+    margin-bottom: 49px
+
+.value-points
+    max-width: 650px
+    border-top: 1px solid $line
+
+    > div
+        display: grid
+        grid-template-columns: 35px 1fr
+        align-items: start
+        gap: 13px
+        padding-block: 18px
+        border-bottom: 1px solid $line
+
+    p
+        max-width: 540px
+        margin: 0
+        color: #595a57
+        font-family: Georgia, serif
+        font-size: 20px
+        letter-spacing: -.025em
+        line-height: 1.45
+
+.value-dot
+    display: grid
+    width: 25px
+    height: 25px
+    place-items: center
+    border-radius: 50%
+    background: $violet
+    font-size: 17px
+
+.value-link
+    margin-top: 32px
+
+.closing
+    position: relative
+    overflow: hidden
+    background: $dark
+    color: white
+    isolation: isolate
+
+.closing-inner
+    position: relative
+    min-height: 520px
+    padding-block: 86px 75px
+
+.closing .eyebrow
+    color: rgba(255, 255, 255, .65)
+
+.closing h2
+    position: relative
+    max-width: 780px
+    margin: 0 0 20px
+    font-family: Georgia, "Times New Roman", serif
+    font-size: clamp(49px, 6.4vw, 84px)
+    font-weight: 400
+    letter-spacing: -.075em
+    line-height: .97
+
+    span
+        color: $lime
+        font-style: italic
+
+.closing-copy
+    position: relative
+    max-width: 470px
+    margin-bottom: 29px
+    color: rgba(255, 255, 255, .68)
+    font-size: 14px
+    line-height: 1.7
+
+.closing-actions
+    position: relative
+    display: flex
+    flex-wrap: wrap
+    gap: 11px
+
+.button-light
+    background: $lime
+    color: $ink
+
+    &:hover, &:focus-visible
+        background: #e8ffab
+
+.button-outline
+    border-color: rgba(255, 255, 255, .38)
+    color: white
+
+    &:hover, &:focus-visible
+        background: white
+        color: $ink
+
+.back-to-top
+    position: absolute
+    right: 0
+    bottom: 40px
+    display: inline-flex
+    align-items: center
+    gap: 12px
+    color: rgba(255, 255, 255, .68)
+    font-size: 11px
+
+    span
+        font-size: 16px
+
+.closing-orbit
+    position: absolute
+    z-index: -1
+    top: 44%
+    right: 3%
+    width: 350px
+    aspect-ratio: 1
+    border: 1px solid rgba(186, 171, 255, .27)
+    border-radius: 50%
+
+.closing-orbit-one
+    transform: rotate(35deg) scaleY(.54)
+
+.closing-orbit-two
+    border-color: rgba(217, 251, 117, .24)
+    transform: rotate(-42deg) scaleY(.54)
+
+.site-footer
+    border-top: 1px solid rgba(255, 255, 255, .13)
+    background: $dark
+    color: white
+
+.footer-inner
+    display: flex
+    min-height: 90px
+    align-items: center
+    justify-content: space-between
+    gap: 22px
+    border-top: 1px solid rgba(255, 255, 255, .13)
+
+.footer-wordmark
+    font-size: 16px
+
+    .wordmark-symbol
+        width: 29px
+        height: 29px
+        background: white
+        color: $ink
+        font-size: 19px
+
+    .wordmark-accent
+        color: $lime
+
+.footer-inner p, .footer-top-link
+    margin: 0
+    color: rgba(255, 255, 255, .58)
+    font-size: 10px
+
+.footer-top-link
+    display: inline-flex
+    align-items: center
+    gap: 10px
+
+    span
+        color: $lime
+        font-size: 15px
+
+@media (max-width: 1000px)
+    .section-wrap, .navigation
+        width: min(100% - 60px, 1240px)
+
+    .hero
+        min-height: 610px
+        grid-template-columns: 1fr .9fr
+        gap: 38px
+        padding-block: 68px 78px
+
+    .hero h1
+        font-size: clamp(51px, 6vw, 70px)
+
+    .hero-art
+        min-height: 430px
+
+    .art-caption
+        left: 23px
+
+    .art-topline, .art-bottomline
+        right: 23px
+        left: 23px
+
+    .step-card
+        padding-right: 22px
+
+        + .step-card
+            padding-left: 22px
+
+    .step-card + .step-card .step-rule
+        left: 22px
+
+    .audience-card
+        padding-inline: 27px
+
+    .audience-symbol
+        right: 33px
+
+@media (max-width: 760px)
+    html
+        scroll-padding-top: 72px
+
+    .section-wrap, .navigation
+        width: min(100% - 40px, 600px)
+
+    .navigation
+        min-height: 72px
+
+    .wordmark
+        font-size: 18px
+
+    .wordmark-symbol
+        width: 31px
+        height: 31px
+
+    .menu-toggle
+        display: flex
+        width: 43px
+        height: 43px
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        gap: 6px
+        border: 1px solid rgba($ink, .2)
+        border-radius: 50%
+        background: transparent
+        cursor: pointer
+
+        span
+            width: 15px
+            height: 1px
+            background: $ink
+            transition: transform .2s ease
+
+        &[aria-expanded="true"] span:first-child
+            transform: translateY(3.5px) rotate(45deg)
+
+        &[aria-expanded="true"] span:last-child
+            transform: translateY(-3.5px) rotate(-45deg)
+
+    .navigation-links
+        position: absolute
+        top: calc(100% + 1px)
+        right: 0
+        left: 0
+        display: none
+        align-items: stretch
+        gap: 0
+        padding: 9px 20px 20px
+        border: 1px solid $line
+        border-top: 0
+        background: $paper
+        box-shadow: 0 16px 24px rgba($ink, .08)
+
+        &.is-open
+            display: flex
+            flex-direction: column
+
+        > a:not(.navigation-cta)
+            padding-block: 16px
+            border-bottom: 1px solid $line
+
+    .navigation-cta
+        justify-content: space-between
+        margin-top: 15px
+
+    .hero
+        min-height: auto
+        grid-template-columns: 1fr
+        gap: 42px
+        padding-block: 76px 73px
+
+    .hero h1
+        font-size: clamp(52px, 12vw, 76px)
+
+    .hero-description
+        max-width: 560px
+        font-size: 15px
+
+    .hero-footnote
+        margin-top: 36px
+
+    .hero-art
+        min-height: 470px
+
+    .art-center
+        width: 132px
+
+    .intro-band-inner
+        min-height: 142px
+        grid-template-columns: 1fr auto
+        row-gap: 11px
+        padding-block: 25px
+
+    .intro-label
+        grid-column: 1 / -1
+
+    .intro-band p
+        font-size: 26px
+
+    .process
+        padding-block: 89px 95px
+
+    .section-heading
+        align-items: flex-start
+        flex-direction: column
+        gap: 22px
+        margin-bottom: 38px
+
+    .section-heading h2, .value-content h2
+        font-size: clamp(45px, 10vw, 62px)
+
+    .section-intro
+        max-width: 520px
+    .steps-grid
+        grid-template-columns: 1fr
+
+    .step-card
+        min-height: auto
+        padding: 22px 0 25px
+
+        + .step-card
+            padding: 22px 0 25px
+            border-top: 1px solid $line
+            border-left: 0
+
+        h3
+            max-width: none
+            margin: 22px 0 8px
+            font-size: 22px
+
+        p
+            max-width: 500px
+
+    .step-rule, .step-card + .step-card .step-rule
+        right: 0
+        left: 0
+
+    .audiences
+        padding-block: 82px 88px
+
+    .audience-grid
+        grid-template-columns: 1fr
+        gap: 12px
+
+    .audience-card
+        min-height: 400px
+        padding: 25px 24px
+
+    .audience-card h3
+        margin-top: 126px
+        font-size: 48px
+
+    .audience-symbol
+        top: 68px
+        right: 33px
+        width: 92px
+
+        span
+            font-size: 42px
+
+    .value
+        grid-template-columns: 1fr
+        gap: 30px
+        padding-block: 90px 100px
+
+    .value-aside
+        flex-direction: row
+        align-items: center
+
+    .value-aside-number
+        text-align: right
+
+    .value-content h2
+        margin-bottom: 35px
+
+    .value-points p
+        font-size: 18px
+
+    .closing-inner
+        min-height: 520px
+        padding-block: 74px 82px
+
+    .closing h2
+        font-size: clamp(49px, 10.5vw, 72px)
+
+    .closing-orbit
+        top: 49%
+        right: -190px
+        width: 300px
+        opacity: .7
+
+    .back-to-top
+        right: auto
+        bottom: 27px
+        left: 0
+
+    .footer-inner
+        min-height: 82px
+        flex-wrap: wrap
+        justify-content: space-between
+        padding-block: 17px
+
+    .footer-inner p
+        display: none
+
+@media (max-width: 420px)
+    .section-wrap, .navigation
+        width: calc(100% - 34px)
+
+    .hero
+        padding-top: 62px
+
+    .hero h1
+        font-size: 49px
+
+    .hero-actions
+        align-items: flex-start
+        flex-direction: column
+        gap: 18px
+
+    .hero-art
+        min-height: 408px
+
+    .art-topline, .art-bottomline
+        right: 16px
+        left: 16px
+
+    .art-caption
+        bottom: 67px
+        left: 17px
+
+    .art-caption strong
+        font-size: 22px
+
+    .art-bottomline
+        gap: 6px
+        font-size: 7px
+
+    .art-connector
+        width: 10px
+
+    .art-stamp
+        right: 8%
+        width: 52px
+        height: 52px
+
+    .desktop-break
+        display: none
+
+    .audience-card
+        min-height: 390px
+
+    .audience-card h3
+        font-size: 43px
+
+    .closing-actions
+        align-items: flex-start
+        flex-direction: column
+
+    .button
+        width: min(100%, 270px)
+
+@media (prefers-reduced-motion: reduce)
+    html
+        scroll-behavior: auto
+
+    *, *::before, *::after
+        scroll-behavior: auto !important
+        transition-duration: .01ms !important
