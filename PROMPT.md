@@ -8,8 +8,9 @@ Rispetta assiduamente ciascuna delle seguenti 5 regole, ognuna con UGUALE IMPORT
 
 Procedi seguendo "passo passo" la seguente tabella di marcia senza MAI INTERROMPERTI:
 
-1. LEGGI E COMPRENDI il file README.md presente nella cartella principale del progetto
-3. MODIFICA i seguenti 3 files RISPETTANDO L'ORDINE: index.html, index.sass, index.js
-4. VALIDA SINTASSI E SEMANTICA dei seguenti 3 files: index.html, index.sass, index.js
+1. LEGGI E COMPRENDI il file README.md che trovi già presente nella root del progetto
+2. MODIFICA i seguenti 3 files RISPETTANDO L'ORDINE: index.html, index.sass, index.js
+3. VALIDA SINTASSI E SEMANTICA dei seguenti 3 files: index.html, index.sass, index.js
 
-La landing page dev'essere: concisa, moderna, animata, responsive e in lingua inglese
+La landing page DEV'ESSERE concisa, moderna, animata, responsive e in lingua inglese.
+Inoltre, DEV'ESSERE strutturata secondo quanto illustrato dettagliatamente a seguire:
