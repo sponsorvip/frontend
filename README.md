@@ -1,1 +1,0 @@
-SponsorVIP permette ai VIP di monetizzare il proprio clone AI attraverso licenze concesse alle aziende, così da ridurre drasticamente i costi di produzione ADV.

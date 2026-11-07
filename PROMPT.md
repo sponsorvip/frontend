@@ -11,6 +11,3 @@ Procedi seguendo "passo passo" la seguente tabella di marcia senza MAI INTERROMP
 1. LEGGI E COMPRENDI il file README.md che trovi già presente nella root del progetto
 2. MODIFICA i seguenti 3 files RISPETTANDO L'ORDINE: index.html, index.sass, index.js
 3. VALIDA SINTASSI E SEMANTICA dei seguenti 3 files: index.html, index.sass, index.js
-
-La landing page DEV'ESSERE concisa, moderna, animata, responsive e in lingua inglese.
-Inoltre, DEV'ESSERE strutturata secondo quanto illustrato dettagliatamente a seguire:
