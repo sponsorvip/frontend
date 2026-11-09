@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /sw.js
 Disallow: /static/
 
 Sitemap: https://sponsorvip.com/sitemap.xml
