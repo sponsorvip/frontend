@@ -15,10 +15,31 @@ summary
     cursor: pointer
 
 details[open] summary::marker
-    color: rgb(0, 0, 255)
+    color: blue
 
 strong
-    color: rgb(0, 0, 255)
+    color: blue
 
-p
+.marquee
+    overflow: hidden
     margin: 10px 15px
+    white-space: nowrap
+
+.marquee-content
+    white-space: nowrap
+    display: inline-block
+
+.marquee-track
+    display: flex
+    width: max-content
+    animation: scroll 15s linear infinite
+
+.marquee-track span
+    flex-shrink: 0
+    padding-right: 40px
+
+@keyframes scroll
+    from
+        transform: translateX(0)
+    to
+        transform: translateX(-50%)
