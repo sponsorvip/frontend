@@ -1,7 +1,3 @@
-setTimeout(() => {
-    document.querySelectorAll("details").forEach(details => {details.open = false;});
-}, 1000);
-
 document.querySelectorAll("details").forEach(detail => {
     detail.addEventListener("toggle", () => {
         if (detail.open) document.querySelectorAll("details").forEach(other => {if (other !== detail)  other.open = false;});
