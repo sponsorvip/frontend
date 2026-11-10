@@ -11,46 +11,72 @@ html, body
     font-family: JetBrains Mono, monospace
     -webkit-tap-highlight-color: transparent
 
-h2
-    margin: 20px
+main
 
-h5
-    bottom: 0
-    right: 20px
-    position: fixed
+    h2
+        margin: 20px
 
-details
-    margin: 0 20px
+    details
+        margin: 0 20px
 
-details + details
-    margin-top: 10px
+        + details
+            margin-top: 10px
 
-summary
-    cursor: pointer
+        summary
+            cursor: pointer
+            list-style: none
 
-details[open] summary::marker
-    color: blue
+            strong
+                color: blue
 
-strong
-    color: blue
+            &::before
+                content: "▶"
+                margin-right: 10px
+                display: inline-block
+                transition: color 1s ease, transform 1s ease
 
-.marquee
-    overflow: hidden
-    margin: 10px 15px
-    white-space: nowrap
+        .description
+            height: 0
+            transition: height 1s ease
 
-.marquee-content
-    white-space: nowrap
-    display: inline-block
+            > *
+                opacity: 0
+                min-height: 0
+                overflow: hidden
+                margin-left: 20px
+                white-space: nowrap
+                transform: translateY(-10px)
+                transition: opacity 1s ease, transform 1s ease
 
-.marquee-track
-    display: flex
-    width: max-content
-    animation: scroll 15s linear 1s infinite
+                .marquee-content
+                    white-space: nowrap
+                    display: inline-block
 
-.marquee-track span
-    flex-shrink: 0
-    padding-right: 40px
+                .marquee-track
+                    display: flex
+                    width: max-content
+                    animation: scroll 15s linear 1s infinite
+
+                    span
+                        flex-shrink: 0
+                        padding-right: 40px
+
+        &[open]
+            summary::before
+                color: blue
+                transform: rotate(90deg)
+
+            .description
+                height: 30px
+
+                > *
+                    opacity: 1
+                    transform: translateY(0)
+
+    h5
+        bottom: 0
+        right: 20px
+        position: fixed
 
 @keyframes scroll
     from
