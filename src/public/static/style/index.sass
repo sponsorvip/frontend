@@ -19,14 +19,32 @@ html, body
 
 body
     background-size: 50px 50px
-    animation: grid-move 5s linear infinite
+    animation: slide 5s linear infinite
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.065) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.065) 1px, transparent 1px)
 
     main
-
         h1
             margin: 20px
+            color: transparent
+            width: fit-content
             font-family: Michroma, monospace
+            background-image: linear-gradient(
+                125deg,
+                #111 0%,
+                #111 42%,
+                rgba(0, 0, 255, 0.3) 47%,
+                blue 50%,
+                rgba(0, 0, 255, 0.3) 53%,
+                #111 58%,
+                #111 100%
+            )
+            background-clip: text
+            background-size: 200% 100%
+            background-position: 100% 0
+            background-repeat: no-repeat
+            -webkit-background-clip: text
+            animation: shine 4s linear infinite
+            -webkit-text-fill-color: transparent
 
         details
             margin: 0 20px
@@ -63,8 +81,8 @@ body
 
             .description
                 height: 0
+                opacity: 0.60
                 transition: height 1s ease
-                color: rgba(0, 0, 0, 0.60)
 
                 > *
                     opacity: 0
@@ -100,12 +118,13 @@ body
                         opacity: 1
                         transform: translateY(0)
 
-        h4
-            bottom: 0
-            right: 20px
-            position: fixed
+@keyframes shine
+    from
+        background-position: 100% 0
+    to
+        background-position: 0% 0
 
-@keyframes grid-move
+@keyframes slide
     from
         background-position: 0 0
     to
