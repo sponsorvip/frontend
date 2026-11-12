@@ -19,7 +19,7 @@ html, body
 body
     background-size: 50px 50px
     animation: grid-move 5s linear infinite
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px)
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px)
 
     main
 
@@ -37,6 +37,15 @@ body
             summary
                 cursor: pointer
                 list-style: none
+                text-underline-offset: 5px
+                text-decoration-style: solid
+                text-decoration-thickness: 1px
+                text-decoration-line: underline
+                text-decoration-color: rgba(0, 0, 255, 0.5)
+
+                &:hover
+                    text-decoration-color: blue
+                    text-decoration-thickness: 2px
 
                 strong
                     color: blue
