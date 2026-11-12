@@ -11,72 +11,75 @@ html, body
     font-family: JetBrains Mono, monospace
     -webkit-tap-highlight-color: transparent
 
-main
+body
+    background-color: baige
 
-    h2
-        margin: 20px
+    main
 
-    details
-        margin: 0 20px
+        h2
+            margin: 20px
 
-        + details
-            margin-top: 10px
+        details
+            margin: 0 20px
 
-        summary
-            cursor: pointer
-            list-style: none
+            + details
+                margin-top: 10px
 
-            strong
-                color: blue
+            summary
+                cursor: pointer
+                list-style: none
 
-            &::before
-                content: "▶"
-                margin-right: 10px
-                display: inline-block
-                transition: color 1s ease, transform 1s ease
+                strong
+                    color: blue
 
-        .description
-            height: 0
-            transition: height 1s ease
-
-            > *
-                opacity: 0
-                min-height: 0
-                overflow: hidden
-                margin-left: 20px
-                white-space: nowrap
-                transform: translateY(-10px)
-                transition: opacity 1s ease, transform 1s ease
-
-                .marquee-content
-                    white-space: nowrap
+                &::before
+                    content: "▶"
+                    margin-right: 10px
                     display: inline-block
-
-                .marquee-track
-                    display: flex
-                    width: max-content
-                    animation: scroll 10s linear 1s infinite
-
-                    span
-                        flex-shrink: 0
-                        padding-right: 40px
-
-        &[open]
-            summary::before
-                color: blue
-                transform: rotate(90deg)
+                    transition: color 1s ease, transform 1s ease
 
             .description
-                height: 30px
+                height: 0
+                transition: height 1s ease
 
                 > *
-                    opacity: 1
-                    transform: translateY(0)
+                    opacity: 0
+                    min-height: 0
+                    overflow: hidden
+                    margin-left: 20px
+                    white-space: nowrap
+                    transform: translateY(-10px)
+                    transition: opacity 1s ease, transform 1s ease
 
-    h5
-        bottom: 0
-        right: 20px
-        position: fixed
+                    .marquee-content
+                        white-space: nowrap
+                        display: inline-block
+
+                    .marquee-track
+                        display: flex
+                        width: max-content
+                        animation: scroll 10s linear 1s infinite
+
+                        span
+                            flex-shrink: 0
+                            padding-right: 40px
+
+            &[open]
+                summary::before
+                    color: blue
+                    transform: rotate(90deg)
+
+                .description
+                    height: 30px
+
+                    > *
+                        opacity: 1
+                        transform: translateY(0)
+
+        h5
+            bottom: 0
+            right: 20px
+            position: fixed
 
 @keyframes scroll
     from
